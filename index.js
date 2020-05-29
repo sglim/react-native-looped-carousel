@@ -51,6 +51,7 @@ export default class Carousel extends Component {
     onPageBeingChanged: PropTypes.func,
     swipe: PropTypes.bool,
     isLooped: PropTypes.bool,
+    scrollEventThrottle: PropTypes.number,
   };
 
   static defaultProps = {
@@ -80,6 +81,7 @@ export default class Carousel extends Component {
     onPageBeingChanged: undefined,
     swipe: true,
     isLooped: true,
+    scrollEventThrottle: 200,
   };
 
   constructor(props) {
@@ -408,6 +410,7 @@ export default class Carousel extends Component {
           onScrollBeginDrag={this._onScrollBegin}
           onMomentumScrollEnd={this._onScrollEnd}
           onScroll={this._onScroll}
+          scrollEventThrottle={this.props.scrollEventThrottle}
           alwaysBounceHorizontal={false}
           alwaysBounceVertical={false}
           contentInset={{ top: 0 }}
